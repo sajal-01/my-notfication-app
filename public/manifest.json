@@ -1,7 +1,7 @@
 {
   "id": "com.example.app",
-  "name": "My PWA App",
-  "short_name": "PWA App",
+  "name": "PWA",
+  "short_name": "PWA",
   "icons": [
     {
       "src": "/icons/android-launchericon-144-144.png",
