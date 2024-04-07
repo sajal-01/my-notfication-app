@@ -106,7 +106,7 @@ export default function Home() {
   }, [subscribeToNotifications, requestNotificationPermission]);
 
   return (
-    <main className="flex min-h-screen overflow-hidden bg-black flex-col items-center justify-between py-20 px-10">
+    <main className="flex min-h-screen overflow-hidden container bg-black flex-col items-center justify-between py-20 px-10">
       <header className="flex items-center justify-center flex-col w-full">
         <h1 className="text-3xl font-normal w-full text-center text-gray-100">
           Lorem Ipsum...
@@ -115,7 +115,7 @@ export default function Home() {
           Lorem ipsum dolor sit amet.
         </p>
       </header>
-      <div className="md:mx-auto overflow-hidden md:max-w-5xl mr-16 md:-mr-44 w-full min-h-[500px] items-center flex">
+      <div className="md:mx-auto overflow-hidden md:max-w-5xl mr-16 md:-mr-56 w-full min-h-[500px] items-center flex">
         <Suspense fallback={<div>Loading...</div>}>
           <Spline scene="https://prod.spline.design/diRa9ehG0YP2Hl6M/scene.splinecode" />
         </Suspense>
