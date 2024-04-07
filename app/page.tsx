@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import Spline from "@splinetool/react-spline";
+import { Suspense, useCallback, useEffect, useState } from "react";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -60,27 +60,22 @@ export default function Home() {
       requestNotificationPermission();
     }
   }, [requestNotificationPermission]);
+
   return (
-    <main className="flex min-h-screen flex-col overflow-hidden items-center justify-between py-20 px-10">
+    <main className="flex min-h-screen bg-black flex-col  items-center justify-between py-20 px-10">
       <header className="flex items-center justify-center flex-col w-full">
-        <h1 className="text-3xl font-normal w-full text-center text-gray-900 dark:text-gray-100">
+        <h1 className="text-3xl font-normal w-full text-center text-gray-100">
           Lorem Ipsum...
         </h1>
-        <p className="text-lg text-center text-gray-600 dark:text-gray-400">
+        <p className="text-lg text-center text-gray-500 ">
           Lorem ipsum dolor sit amet.
         </p>
       </header>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1] ">
-        <Image
-          src="/Illustration.png"
-          alt="Illustration"
-          width={1080}
-          height={720}
-          quality={100}
-          objectFit="contain"
-          className="max-w-[100%] max-h-[100%] w-[100%] h-[100%] object-cover"
-        />
+      <div className=" md:mx-auto md:max-w-5xl mr-16 md:-mr-44    w-full  min-h-[500px] items-center flex ">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Spline scene="https://prod.spline.design/diRa9ehG0YP2Hl6M/scene.splinecode" />
+        </Suspense>
       </div>
 
       <div className="mb-54 flex items-center justify-center text-center w-full lg:mb-0 ">
@@ -91,9 +86,24 @@ export default function Home() {
         >
           {loading ? (
             <h2
-              className={`text-center text-white text-[16px] leading-[16px] font-bold `}
+              className={`text-center flex items-center justify-center space-x-2 text-gray-200 text-[16px] leading-[16px] font-bold `}
             >
-              Sending Notification...
+              <span>Please Wait</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon animate-spin icon-tabler icons-tabler-outline icon-tabler-loader-2"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 3a9 9 0 1 0 9 9" />
+              </svg>
             </h2>
           ) : (
             <h2
